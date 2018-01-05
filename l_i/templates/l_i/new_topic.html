@@ -1,0 +1,12 @@
+{% extends "l_i/base.html" %}
+
+{% block content %}
+<p>Add a new topics:</p>
+
+<form action="{% url 'l_i:new_topic' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">add topic</button>
+</form>
+
+{% endblock content %}

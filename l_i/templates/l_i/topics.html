@@ -1,0 +1,18 @@
+{% extends "l_i/base.html" %}
+
+{% block content %}
+<p>Topics</p>
+
+<ul>
+    {% for topic in topics %}
+    <li>
+        <a href="{% url 'l_i:topic' topic.id %}">{{ topic }}</a>
+    </li>
+    {% empty %}
+    <li>No topics have been added yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'l_i:new_topic' %}">Add a new topic:</a>
+
+{% endblock content %}

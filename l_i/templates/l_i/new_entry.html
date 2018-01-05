@@ -1,0 +1,14 @@
+{% extends "l_i/base.html" %}
+
+{% block content %}
+
+<p><a href="{% url 'l_i:topic' topic.id %}">{{ topic }}</a></p>
+
+<p>ADD a new entry:</p>
+<form action="{% url 'l_i:new_entry' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">add entry</button>
+</form>
+
+{% endblock content %}
