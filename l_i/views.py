@@ -48,8 +48,6 @@ def new_topic(request):
 def new_entry(request, topic_id):
     """"""
     topic = Topic.objects.get(id=topic_id)
-    if request.owner != request.user:
-        raise Http404
 
     if request.method != 'POST':
         form = EntryForm()
@@ -69,6 +67,8 @@ def edit_entry(request, entry_id):
     """"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
+    if request.owner != request.owner:
+        raise Http404
 
     if request.method != 'POST':
         form = EntryForm(instance=entry, data=request.POST)

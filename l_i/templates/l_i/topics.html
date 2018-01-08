@@ -1,18 +1,23 @@
 {% extends "l_i/base.html" %}
 
+{% block header %}
+<h1>Topics</h1>
+{% endblock header %}
+
 {% block content %}
-<p>Topics</p>
 
 <ul>
     {% for topic in topics %}
     <li>
+        <h3>
         <a href="{% url 'l_i:topic' topic.id %}">{{ topic }}</a>
+        </h3>
     </li>
     {% empty %}
     <li>No topics have been added yet.</li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'l_i:new_topic' %}">Add a new topic:</a>
+<h3><a href="{% url 'l_i:new_topic' %}">Add a new topic:</a></h3>
 
 {% endblock content %}
